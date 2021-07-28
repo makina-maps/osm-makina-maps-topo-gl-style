@@ -414,24 +414,6 @@
       }
     },
     {
-      "id": "tunnel-service-track-casing",
-      "type": "line",
-      "metadata": {"mapbox:group": "1444849354174.1904"},
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "service", "track"]
-      ],
-      "layout": {"line-join": "round"},
-      "paint": {
-        "line-color": "#cfcdca",
-        "line-dasharray": [0.5, 0.25],
-        "line-width": {"base": 1.2, "stops": [[15, 1], [16, 4], [20, 11]]}
-      }
-    },
-    {
       "id": "tunnel-motorway-link-casing",
       "type": "line",
       "metadata": {"mapbox:group": "1444849354174.1904"},
@@ -609,8 +591,8 @@
       ],
       "layout": {"line-join": "round"},
       "paint": {
-        "line-color": "#fff",
-        "line-width": {"base": 1.2, "stops": [[15.5, 0], [16, 2], [20, 7.5]]}
+        "line-color": "#cba",
+        "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 4]]}
       }
     },
     {
@@ -928,15 +910,14 @@
         "all",
         ["==", "$type", "LineString"],
         ["!=", "brunnel", "tunnel"],
-        ["in", "class", "minor", "service", "track"]
+        ["==", "class", "minor"]
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
-        "line-color": "#cfcdca",
-        "line-opacity": {"stops": [[12, 0], [12.5, 1]]},
+        "line-color": "rgba(164, 164, 164, 1)",
         "line-width": {
           "base": 1.2,
-          "stops": [[12, 0.5], [13, 1], [14, 4], [20, 15]]
+          "stops": [[11, 0.5], [12, 1], [13, 4], [20, 15]]
         }
       }
     },
@@ -1057,8 +1038,30 @@
         ["==", "class", "path"]
       ],
       "paint": {
-        "line-color": "#cba",
+        "line-color": "rgba(140, 117, 93, 1)",
         "line-dasharray": [1.5, 0.75],
+        "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 4]]}
+      }
+    },
+    {
+      "id": "highway-track",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["in", "class", "service", "track"]
+      ],
+      "paint": {
+        "line-color": {
+          "stops": [
+            [12, "rgba(164, 164, 164, 1)"],
+            [14, "rgba(140, 117, 93, 1)"]
+          ]
+        },
         "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 4]]}
       }
     },
@@ -1120,13 +1123,12 @@
         "all",
         ["==", "$type", "LineString"],
         ["!=", "brunnel", "tunnel"],
-        ["in", "class", "minor", "service", "track"]
+        ["in", "class", "minor"]
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
         "line-color": "#fff",
-        "line-opacity": 1,
-        "line-width": {"base": 1.2, "stops": [[13.5, 0], [14, 2.5], [20, 11.5]]}
+        "line-width": {"base": 1.2, "stops": [[12.5, 0], [13, 2.5], [20, 11.5]]}
       }
     },
     {
@@ -1449,7 +1451,7 @@
         "all",
         ["==", "$type", "LineString"],
         ["==", "brunnel", "bridge"],
-        ["in", "class", "minor", "service", "track"]
+        ["==", "class", "minor"]
       ],
       "layout": {"line-cap": "butt", "line-join": "round"},
       "paint": {
@@ -1479,6 +1481,23 @@
       }
     },
     {
+      "id": "bridge-track-casing",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849334699.1902"},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "service", "track"]
+      ],
+      "paint": {
+        "line-color": "#f8f4f0",
+        "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 18]]}
+      }
+    },
+    {
       "id": "bridge-path",
       "type": "line",
       "metadata": {"mapbox:group": "1444849334699.1902"},
@@ -1493,6 +1512,28 @@
       "paint": {
         "line-color": "#cba",
         "line-dasharray": [1.5, 0.75],
+        "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 4]]}
+      }
+    },
+    {
+      "id": "bridge-track",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849334699.1902"},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "service", "track"]
+      ],
+      "paint": {
+        "line-color": {
+          "stops": [
+            [12, "rgba(164, 164, 164, 1)"],
+            [14, "rgba(140, 117, 93, 1)"]
+          ]
+        },
         "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 4]]}
       }
     },
@@ -1548,7 +1589,7 @@
         "all",
         ["==", "$type", "LineString"],
         ["==", "brunnel", "bridge"],
-        ["in", "class", "minor", "service", "track"]
+        ["==", "class", "minor"]
       ],
       "layout": {"line-cap": "round", "line-join": "round"},
       "paint": {
