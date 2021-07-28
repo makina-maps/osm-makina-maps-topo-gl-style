@@ -2220,13 +2220,12 @@
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
         "text-size": {"base": 1.2, "stops": [[12, 10], [15, 14]]},
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "#633",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
+        "text-color": "#333",
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 2
       }
     },
     {
@@ -2238,15 +2237,15 @@
       "filter": ["==", "class", "village"],
       "layout": {
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["Noto Sans Bold"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]},
         "visibility": "visible"
       },
       "paint": {
         "text-color": "#333",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 3
       }
     },
     {
@@ -2258,15 +2257,15 @@
       "filter": ["==", "class", "town"],
       "layout": {
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["Noto Sans Bold"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 14], [15, 24]]},
         "visibility": "visible"
       },
       "paint": {
         "text-color": "#333",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 3
       }
     },
     {
@@ -2278,15 +2277,15 @@
       "filter": ["all", ["!=", "capital", 2], ["==", "class", "city"]],
       "layout": {
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["Noto Sans Bold"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
         "visibility": "visible"
       },
       "paint": {
         "text-color": "#333",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 3
       }
     },
     {
@@ -2301,7 +2300,7 @@
         "icon-size": 0.8,
         "text-anchor": "left",
         "text-field": "{name:latin}\n{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["Noto Sans Bold"],
         "text-max-width": 8,
         "text-offset": [0.4, 0],
         "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
@@ -2309,8 +2308,8 @@
       },
       "paint": {
         "text-color": "#333",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-halo-width": 3
       }
     },
     {
