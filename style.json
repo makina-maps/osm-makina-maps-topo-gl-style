@@ -25,6 +25,14 @@
     "openmaptiles": {
       "type": "vector",
       "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={key}"
+    },
+    "contours": {
+      "type": "vector",
+      "url": "https://dev2-makinamaps.makina-corpus.net/data/contours.json"
+    },
+    "hillshading": {
+      "type": "raster-dem",
+      "url": "https://dev2-makinamaps.makina-corpus.net/data/hillshading.json"
     }
   },
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
@@ -359,6 +367,105 @@
       "filter": ["all", ["==", "class", "sand"]],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(245, 238, 188, 1)", "fill-opacity": 1}
+    },
+    {
+      "id": "contours",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["!=", ["get", "ele"], 0],
+        [
+          "==",
+          [
+            "%",
+            ["get", "div"],
+            ["step", ["zoom"], 200, 10, 100, 12, 50, 13, 20, 15, 10]
+          ],
+          0
+        ]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(45, 117, 36, 0.45)",
+        "line-width": [
+          "step",
+          ["zoom"],
+          1,
+          11,
+          ["case", ["==", ["%", ["get", "div"], 500], 0], 2, 1],
+          12,
+          ["case", ["==", ["%", ["get", "div"], 200], 0], 2, 1],
+          13,
+          ["case", ["==", ["%", ["get", "div"], 100], 0], 2, 1],
+          15,
+          ["case", ["==", ["%", ["get", "div"], 50], 0], 2, 1]
+        ],
+        "line-opacity": {"stops": [[10, 0], [11, 0.25]]}
+      }
+    },
+    {
+      "id": "contours-labels",
+      "type": "symbol",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["!=", ["get", "ele"], 0],
+        [
+          "==",
+          [
+            "%",
+            ["get", "div"],
+            [
+              "step",
+              ["zoom"],
+              1000,
+              10,
+              500,
+              12,
+              200,
+              13,
+              100,
+              15,
+              50,
+              17,
+              20,
+              18,
+              10
+            ]
+          ],
+          0
+        ]
+      ],
+      "layout": {
+        "text-field": "{ele}",
+        "text-font": ["Noto Sans Bold"],
+        "symbol-placement": "line",
+        "text-size": 10,
+        "text-ignore-placement": true
+      },
+      "paint": {
+        "text-color": "rgba(45, 117, 36, .8)",
+        "text-halo-color": "rgba(248, 244, 240, 1)",
+        "text-halo-width": 1,
+        "text-opacity": 0.7
+      }
+    },
+    {
+      "id": "hillshading",
+      "type": "hillshade",
+      "source": "hillshading",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-exaggeration": {"stops": [[9, 0.5], [11, 0.5]]},
+        "hillshade-shadow-color": {
+          "stops": [[6, "rgba(0, 0, 0, 0.5)"], [11, "rgba(0, 0, 0, 1)"]]
+        }
+      }
     },
     {
       "id": "building",
