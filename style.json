@@ -2076,7 +2076,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation_name",
       "minzoom": 15.5,
-      "filter": ["==", "class", "path"],
+      "filter": ["all", ["in", "class", "service", "track", "path"]],
       "layout": {
         "symbol-placement": "line",
         "text-field": "{name:latin} {name:nonlatin}",
@@ -2085,9 +2085,10 @@
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
       },
       "paint": {
-        "text-color": "hsl(30, 23%, 62%)",
+        "text-color": "rgba(143, 103, 79, 1)",
         "text-halo-color": "#f8f4f0",
-        "text-halo-width": 0.5
+        "text-halo-width": 3,
+        "text-halo-blur": 1
       }
     },
     {
@@ -2099,7 +2100,7 @@
       "filter": [
         "all",
         ["==", "$type", "LineString"],
-        ["in", "class", "minor", "service", "track"]
+        ["in", "class", "minor"]
       ],
       "layout": {
         "symbol-placement": "line",
@@ -2109,9 +2110,9 @@
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
       },
       "paint": {
-        "text-color": "#765",
-        "text-halo-blur": 0.5,
-        "text-halo-width": 1
+        "text-color": "#333",
+        "text-halo-width": 1,
+        "text-halo-color": "#fff"
       }
     },
     {
@@ -2129,8 +2130,8 @@
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
       },
       "paint": {
-        "text-color": "#765",
-        "text-halo-blur": 0.5,
+        "text-color": "#333",
+        "text-halo-color": "#fea",
         "text-halo-width": 1
       }
     },
