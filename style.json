@@ -682,9 +682,31 @@
       "source-layer": "transportation",
       "filter": ["all", ["==", "brunnel", "tunnel"], ["==", "class", "rail"]],
       "paint": {
-        "line-color": "#bbb",
-        "line-dasharray": [2, 2],
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-color": {
+          "stops": [[11, "rgba(147, 147, 147, 1)"], [12, "rgba(98, 98, 98, 1)"]]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 1], [14, 3.1], [15, 4], [20, 10]]
+        },
+        "line-opacity": {"stops": [[11, 1], [13, 0.25]]}
+      }
+    },
+    {
+      "id": "tunnel-railway-hatching",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": ["all", ["==", "brunnel", "tunnel"], ["==", "class", "rail"]],
+      "paint": {
+        "line-color": "#fff",
+        "line-dasharray": [4, 4],
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 0], [14.5, 1.6], [15, 3], [20, 8]]
+        },
+        "line-opacity": 0.8
       }
     },
     {
@@ -1227,7 +1249,7 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-color": "hsla(0, 0%, 73%, 0.77)",
+        "line-color": "rgba(98, 98, 98, 1)",
         "line-width": {"base": 1.4, "stops": [[14, 0.4], [20, 1]]}
       }
     },
@@ -1245,7 +1267,7 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-color": "hsla(0, 0%, 73%, 0.68)",
+        "line-color": "rgba(98, 98, 98, 1)",
         "line-dasharray": [0.2, 8],
         "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 2], [20, 6]]}
       }
@@ -1263,8 +1285,13 @@
         ["has", "service"]
       ],
       "paint": {
-        "line-color": "hsla(0, 0%, 73%, 0.77)",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [20, 1]]}
+        "line-color": {
+          "stops": [[11, "rgba(147, 147, 147, 1)"], [12, "rgba(98, 98, 98, 1)"]]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 0.5], [14, 2.6], [15, 3], [20, 8]]
+        }
       }
     },
     {
@@ -1281,9 +1308,12 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-color": "hsla(0, 0%, 73%, 0.68)",
-        "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 2], [20, 6]]}
+        "line-color": "#fff",
+        "line-dasharray": [4, 1],
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 0], [14.5, 1.1], [15, 2], [20, 6]]
+        }
       }
     },
     {
@@ -1300,8 +1330,13 @@
         ["==", "class", "rail"]
       ],
       "paint": {
-        "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-color": {
+          "stops": [[11, "rgba(147, 147, 147, 1)"], [12, "rgba(98, 98, 98, 1)"]]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 1], [14, 3.1], [15, 4], [20, 10]]
+        }
       }
     },
     {
@@ -1318,9 +1353,12 @@
         ["==", "class", "rail"]
       ],
       "paint": {
-        "line-color": "#bbb",
-        "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-color": "#fff",
+        "line-dasharray": [4, 4],
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 0], [14.5, 1.6], [15, 3], [20, 8]]
+        }
       }
     },
     {
@@ -1650,8 +1688,13 @@
       "source-layer": "transportation",
       "filter": ["all", ["==", "brunnel", "bridge"], ["==", "class", "rail"]],
       "paint": {
-        "line-color": "#bbb",
-        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+        "line-color": {
+          "stops": [[11, "rgba(147, 147, 147, 1)"], [12, "rgba(98, 98, 98, 1)"]]
+        },
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 1], [14, 4.1], [15, 8], [20, 18]]
+        }
       }
     },
     {
@@ -1662,9 +1705,12 @@
       "source-layer": "transportation",
       "filter": ["all", ["==", "brunnel", "bridge"], ["==", "class", "rail"]],
       "paint": {
-        "line-color": "#bbb",
-        "line-dasharray": [0.2, 8],
-        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+        "line-color": "#fff",
+        "line-dasharray": [4, 4],
+        "line-width": {
+          "base": 1,
+          "stops": [[11, 0], [14.5, 1.6], [15, 3], [20, 8]]
+        }
       }
     },
     {
