@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "Bright",
+  "name": "Makina Maps Topo",
   "metadata": {
     "mapbox:autocomposite": false,
     "mapbox:groups": {
@@ -2646,5 +2646,5 @@
       }
     }
   ],
-  "id": "bright"
+  "id": "makina-maps-topo"
 }

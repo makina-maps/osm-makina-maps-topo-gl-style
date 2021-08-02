@@ -1,3 +1,4 @@
+Copyright (c) 2021, Manina Corpus & contributors.
 Copyright (c) 2016, KlokanTech.com & OpenMapTiles contributors.  
 Copyright (c) 2014, Mapbox.  
 All rights reserved.

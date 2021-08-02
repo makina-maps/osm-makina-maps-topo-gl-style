@@ -1,21 +1,18 @@
-# OSM Bright
-[![Build Status](https://travis-ci.org/openmaptiles/osm-bright-gl-style.svg?branch=master)](https://travis-ci.org/openmaptiles/osm-bright-gl-style)
+# Makina Maps Topo
 
-A Mapbox GL basemap style showcasing OpenStreetMap.
-It is using the vector tile
-schema of [OpenMapTiles](https://github.com/openmaptiles/openmaptiles).
+A Mapbox GL Topo map build on OpenStreetMap and OpenMapTiles.
+
+Derived from [OSM Bright GL Style](https://github.com/openmaptiles/osm-bright-gl-style).
 
 ## Preview
 
-**[:globe_with_meridians: Browse the map](https://openmaptiles.github.io/osm-bright-gl-style)**
+![](screen-1.jpeg)
 
-<img src="https://github.com/openmaptiles/osm-bright-gl-style/raw/gh-pages/preview/preview-15.png" width="600" title="Preview Zurich">
+![](screen-2.jpeg)
 
-<img src="https://github.com/openmaptiles/osm-bright-gl-style/raw/gh-pages/preview/preview-10.png" width="600" title="Preview Lake Zurich">
+![](screen-3.jpeg)
 
-<img src="https://github.com/openmaptiles/osm-bright-gl-style/raw/gh-pages/preview/preview-7.png" width="600" title="Preview Switzerland">
-
-<img src="https://github.com/openmaptiles/osm-bright-gl-style/raw/gh-pages/preview/preview-4.png" width="600" title="Preview Europe">
+![](screen-4.jpeg)
 
 ## Edit the Style
 
