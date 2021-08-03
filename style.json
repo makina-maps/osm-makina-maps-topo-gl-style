@@ -1779,14 +1779,15 @@
       "filter": [
         "all",
         [">=", "admin_level", 3],
-        ["<=", "admin_level", 8],
+        ["<=", "admin_level", 6],
         ["!=", "maritime", 1]
       ],
       "layout": {"line-join": "round", "visibility": "visible"},
       "paint": {
-        "line-color": "#9e9cab",
-        "line-dasharray": [3, 1, 1, 1],
-        "line-width": {"base": 1.4, "stops": [[4, 0.4], [5, 1], [12, 3]]}
+        "line-color": "rgba(255, 0, 247, 1)",
+        "line-width": {"base": 1.4, "stops": [[4, 0.4], [5, 1], [12, 2]]},
+        "line-opacity": 0.3,
+        "line-dasharray": [2, 2]
       }
     },
     {
