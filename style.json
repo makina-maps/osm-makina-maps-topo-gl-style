@@ -2257,7 +2257,7 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation_name",
-      "minzoom": 12.2,
+      "minzoom": 12,
       "filter": ["in", "class", "primary", "secondary", "tertiary", "trunk"],
       "layout": {
         "symbol-placement": "line",
@@ -2273,82 +2273,72 @@
       }
     },
     {
-      "id": "highway-shield",
+      "id": "highway-ref-path",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 15.5,
+      "filter": ["all", ["in", "class", "service", "track", "path"]],
+      "layout": {
+        "symbol-placement": {"base": 1, "stops": [[10, "point"], [11, "line"]]},
+        "symbol-spacing": 200,
+        "text-field": "{ref}",
+        "text-font": ["Noto Sans Regular"],
+        "text-rotation-alignment": "map",
+        "text-size": 10
+      },
+      "paint": {
+        "text-color": "rgba(143, 103, 79, 1)",
+        "text-halo-color": "#f8f4f0",
+        "text-halo-width": 3,
+        "text-halo-blur": 1
+      }
+    },
+    {
+      "id": "highway-ref-minor",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "minor"]
+      ],
+      "layout": {
+        "symbol-placement": {"base": 1, "stops": [[10, "point"], [11, "line"]]},
+        "symbol-spacing": 250,
+        "text-field": "{ref}",
+        "text-font": ["Noto Sans Regular"],
+        "text-rotation-alignment": "map",
+        "text-size": 10
+      },
+      "paint": {
+        "text-color": "#333",
+        "text-halo-width": 1,
+        "text-halo-color": "#fff"
+      }
+    },
+    {
+      "id": "highway-ref-major",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation_name",
       "minzoom": 8,
-      "filter": [
-        "all",
-        ["<=", "ref_length", 6],
-        ["==", "$type", "LineString"],
-        ["!in", "network", "us-interstate", "us-highway", "us-state"]
-      ],
+      "filter": ["in", "class", "primary", "secondary", "tertiary", "trunk"],
       "layout": {
-        "icon-image": "road_{ref_length}",
-        "icon-rotation-alignment": "viewport",
-        "icon-size": 1,
         "symbol-placement": {"base": 1, "stops": [[10, "point"], [11, "line"]]},
-        "symbol-spacing": 200,
+        "symbol-spacing": 300,
         "text-field": "{ref}",
         "text-font": ["Noto Sans Regular"],
-        "text-rotation-alignment": "viewport",
+        "text-rotation-alignment": {"stops": [[10, "viewport"], [11, "map"]]},
         "text-size": 10
       },
-      "paint": {}
-    },
-    {
-      "id": "highway-shield-us-interstate",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 7,
-      "filter": [
-        "all",
-        ["<=", "ref_length", 6],
-        ["==", "$type", "LineString"],
-        ["in", "network", "us-interstate"]
-      ],
-      "layout": {
-        "icon-image": "{network}_{ref_length}",
-        "icon-rotation-alignment": "viewport",
-        "icon-size": 1,
-        "symbol-placement": {
-          "base": 1,
-          "stops": [[7, "point"], [7, "line"], [8, "line"]]
-        },
-        "symbol-spacing": 200,
-        "text-field": "{ref}",
-        "text-font": ["Noto Sans Regular"],
-        "text-rotation-alignment": "viewport",
-        "text-size": 10
-      },
-      "paint": {"text-color": "rgba(0, 0, 0, 1)"}
-    },
-    {
-      "id": "highway-shield-us-other",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["<=", "ref_length", 6],
-        ["==", "$type", "LineString"],
-        ["in", "network", "us-highway", "us-state"]
-      ],
-      "layout": {
-        "icon-image": "{network}_{ref_length}",
-        "icon-rotation-alignment": "viewport",
-        "icon-size": 1,
-        "symbol-placement": {"base": 1, "stops": [[10, "point"], [11, "line"]]},
-        "symbol-spacing": 200,
-        "text-field": "{ref}",
-        "text-font": ["Noto Sans Regular"],
-        "text-rotation-alignment": "viewport",
-        "text-size": 10
-      },
-      "paint": {"text-color": "rgba(0, 0, 0, 1)"}
+      "paint": {
+        "text-color": "#333",
+        "text-halo-color": "#fea",
+        "text-halo-width": 1
+      }
     },
     {
       "id": "airport-label-major",
