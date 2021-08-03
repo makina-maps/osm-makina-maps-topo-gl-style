@@ -2202,10 +2202,9 @@
         "text-size": 12
       },
       "paint": {
-        "text-color": "#666",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-color": "#111",
+        "text-halo-width": 1,
+        "text-halo-color": "#fff"
       }
     },
     {
