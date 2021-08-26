@@ -1081,7 +1081,7 @@
       ],
       "paint": {
         "line-color": "rgba(140, 117, 93, 1)",
-        "line-dasharray": [1.5, 0.75],
+        "line-dasharray": [1.5, 1.25],
         "line-width": {"base": 1.2, "stops": [[15, 1.2], [20, 4]]}
       }
     },
