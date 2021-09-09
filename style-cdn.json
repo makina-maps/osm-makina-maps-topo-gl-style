@@ -52,11 +52,11 @@
     },
     "contours": {
       "type": "vector",
-      "url": "https://dev2-makinamaps.makina-corpus.net/data/contours.json"
+      "url": "https://makinamaps.makina-corpus.net/data/contours.json"
     },
     "hillshading": {
       "type": "raster-dem",
-      "url": "https://dev2-makinamaps.makina-corpus.net/data/hillshading.json"
+      "url": "https://makinamaps.makina-corpus.net/data/hillshading.json"
     }
   },
   "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=Xfb74aIJXmRrUdfJyYo5",
@@ -2718,7 +2718,7 @@
         "line-color": "rgba(140, 117, 93, 1)",
         "line-dasharray": [
           1.5,
-          0.75
+          1.25
         ],
         "line-width": {
           "base": 1.2,
@@ -4686,7 +4686,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "hsl(248, 7%, 70%)",
@@ -4740,7 +4740,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(154, 189, 214, 1)",
