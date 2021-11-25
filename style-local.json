@@ -56,7 +56,7 @@
     },
     "hillshading": {
       "type": "raster-dem",
-      "url": "https://makinamaps.makina-corpus.net/data/hillshading.json"
+      "url": "https://makinamaps.makina-corpus.net/data/hillshading_webp.json"
     }
   },
   "sprite": "{styleJsonFolder}/sprite",
@@ -236,6 +236,336 @@
       "paint": {
         "fill-color": "#d8e8c8",
         "fill-opacity": 0.8
+      }
+    },
+    {
+      "id": "landcover-wetland",
+      "type": "fill",
+      "metadata": {
+        "mapbox:group": "1444849388993.3071"
+      },
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "wetland"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(0, 222, 86, 1)",
+        "fill-opacity": {
+          "stops": [
+            [
+              10,
+              0
+            ],
+            [
+              12,
+              0.1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "landcover-ice-shelf",
+      "type": "fill",
+      "metadata": {
+        "mapbox:group": "1444849382550.77"
+      },
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "filter": [
+        "==",
+        "subclass",
+        "ice_shelf"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "#fff",
+        "fill-opacity": {
+          "base": 1,
+          "stops": [
+            [
+              0,
+              0.9
+            ],
+            [
+              10,
+              0.3
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "landcover-sand",
+      "type": "fill",
+      "metadata": {
+        "mapbox:group": "1444849382550.77"
+      },
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "sand"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(245, 238, 188, 1)",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "contours",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        [
+          "!=",
+          [
+            "get",
+            "ele"
+          ],
+          0
+        ],
+        [
+          "==",
+          [
+            "%",
+            [
+              "get",
+              "div"
+            ],
+            [
+              "step",
+              [
+                "zoom"
+              ],
+              200,
+              10,
+              100,
+              12,
+              50,
+              13,
+              20,
+              15,
+              10
+            ]
+          ],
+          0
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(45, 117, 36, 0.45)",
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          11,
+          [
+            "case",
+            [
+              "==",
+              [
+                "%",
+                [
+                  "get",
+                  "div"
+                ],
+                500
+              ],
+              0
+            ],
+            2,
+            1
+          ],
+          12,
+          [
+            "case",
+            [
+              "==",
+              [
+                "%",
+                [
+                  "get",
+                  "div"
+                ],
+                200
+              ],
+              0
+            ],
+            2,
+            1
+          ],
+          13,
+          [
+            "case",
+            [
+              "==",
+              [
+                "%",
+                [
+                  "get",
+                  "div"
+                ],
+                100
+              ],
+              0
+            ],
+            2,
+            1
+          ],
+          15,
+          [
+            "case",
+            [
+              "==",
+              [
+                "%",
+                [
+                  "get",
+                  "div"
+                ],
+                50
+              ],
+              0
+            ],
+            2,
+            1
+          ]
+        ],
+        "line-opacity": {
+          "stops": [
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              0.25
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "contours-labels",
+      "type": "symbol",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        [
+          "!=",
+          [
+            "get",
+            "ele"
+          ],
+          0
+        ],
+        [
+          "==",
+          [
+            "%",
+            [
+              "get",
+              "div"
+            ],
+            [
+              "step",
+              [
+                "zoom"
+              ],
+              1000,
+              10,
+              500,
+              12,
+              200,
+              13,
+              100,
+              15,
+              50,
+              17,
+              20,
+              18,
+              10
+            ]
+          ],
+          0
+        ]
+      ],
+      "layout": {
+        "text-field": "{ele}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "symbol-placement": "line",
+        "text-size": 10,
+        "text-ignore-placement": true
+      },
+      "paint": {
+        "text-color": "rgba(45, 117, 36, .8)",
+        "text-halo-color": "rgba(248, 244, 240, 1)",
+        "text-halo-width": 1,
+        "text-opacity": 0.7
+      }
+    },
+    {
+      "id": "hillshading",
+      "type": "hillshade",
+      "source": "hillshading",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "hillshade-exaggeration": {
+          "stops": [
+            [
+              12,
+              0.5
+            ],
+            [
+              15,
+              0.3
+            ]
+          ]
+        },
+        "hillshade-shadow-color": {
+          "stops": [
+            [
+              6,
+              "rgba(0, 0, 0, 0.5)"
+            ],
+            [
+              11,
+              "rgba(0, 0, 0, 1)"
+            ]
+          ]
+        }
       }
     },
     {
@@ -665,336 +995,6 @@
       "paint": {
         "fill-color": "hsl(210, 67%, 85%)",
         "fill-opacity": 0.7
-      }
-    },
-    {
-      "id": "landcover-wetland",
-      "type": "fill",
-      "metadata": {
-        "mapbox:group": "1444849388993.3071"
-      },
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "wetland"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(0, 222, 86, 1)",
-        "fill-opacity": {
-          "stops": [
-            [
-              10,
-              0
-            ],
-            [
-              12,
-              0.1
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "landcover-ice-shelf",
-      "type": "fill",
-      "metadata": {
-        "mapbox:group": "1444849382550.77"
-      },
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": [
-        "==",
-        "subclass",
-        "ice_shelf"
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#fff",
-        "fill-opacity": {
-          "base": 1,
-          "stops": [
-            [
-              0,
-              0.9
-            ],
-            [
-              10,
-              0.3
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "landcover-sand",
-      "type": "fill",
-      "metadata": {
-        "mapbox:group": "1444849382550.77"
-      },
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": [
-        "all",
-        [
-          "==",
-          "class",
-          "sand"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(245, 238, 188, 1)",
-        "fill-opacity": 1
-      }
-    },
-    {
-      "id": "contours",
-      "type": "line",
-      "source": "contours",
-      "source-layer": "contours",
-      "minzoom": 10,
-      "filter": [
-        "all",
-        [
-          "!=",
-          [
-            "get",
-            "ele"
-          ],
-          0
-        ],
-        [
-          "==",
-          [
-            "%",
-            [
-              "get",
-              "div"
-            ],
-            [
-              "step",
-              [
-                "zoom"
-              ],
-              200,
-              10,
-              100,
-              12,
-              50,
-              13,
-              20,
-              15,
-              10
-            ]
-          ],
-          0
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(45, 117, 36, 0.45)",
-        "line-width": [
-          "step",
-          [
-            "zoom"
-          ],
-          1,
-          11,
-          [
-            "case",
-            [
-              "==",
-              [
-                "%",
-                [
-                  "get",
-                  "div"
-                ],
-                500
-              ],
-              0
-            ],
-            2,
-            1
-          ],
-          12,
-          [
-            "case",
-            [
-              "==",
-              [
-                "%",
-                [
-                  "get",
-                  "div"
-                ],
-                200
-              ],
-              0
-            ],
-            2,
-            1
-          ],
-          13,
-          [
-            "case",
-            [
-              "==",
-              [
-                "%",
-                [
-                  "get",
-                  "div"
-                ],
-                100
-              ],
-              0
-            ],
-            2,
-            1
-          ],
-          15,
-          [
-            "case",
-            [
-              "==",
-              [
-                "%",
-                [
-                  "get",
-                  "div"
-                ],
-                50
-              ],
-              0
-            ],
-            2,
-            1
-          ]
-        ],
-        "line-opacity": {
-          "stops": [
-            [
-              10,
-              0
-            ],
-            [
-              11,
-              0.25
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "contours-labels",
-      "type": "symbol",
-      "source": "contours",
-      "source-layer": "contours",
-      "minzoom": 10,
-      "filter": [
-        "all",
-        [
-          "!=",
-          [
-            "get",
-            "ele"
-          ],
-          0
-        ],
-        [
-          "==",
-          [
-            "%",
-            [
-              "get",
-              "div"
-            ],
-            [
-              "step",
-              [
-                "zoom"
-              ],
-              1000,
-              10,
-              500,
-              12,
-              200,
-              13,
-              100,
-              15,
-              50,
-              17,
-              20,
-              18,
-              10
-            ]
-          ],
-          0
-        ]
-      ],
-      "layout": {
-        "text-field": "{ele}",
-        "text-font": [
-          "Noto Sans Bold"
-        ],
-        "symbol-placement": "line",
-        "text-size": 10,
-        "text-ignore-placement": true
-      },
-      "paint": {
-        "text-color": "rgba(45, 117, 36, .8)",
-        "text-halo-color": "rgba(248, 244, 240, 1)",
-        "text-halo-width": 1,
-        "text-opacity": 0.7
-      }
-    },
-    {
-      "id": "hillshading",
-      "type": "hillshade",
-      "source": "hillshading",
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "hillshade-exaggeration": {
-          "stops": [
-            [
-              9,
-              0.5
-            ],
-            [
-              11,
-              0.5
-            ]
-          ]
-        },
-        "hillshade-shadow-color": {
-          "stops": [
-            [
-              6,
-              "rgba(0, 0, 0, 0.5)"
-            ],
-            [
-              11,
-              "rgba(0, 0, 0, 1)"
-            ]
-          ]
-        }
       }
     },
     {
@@ -4929,6 +4929,104 @@
       }
     },
     {
+      "id": "road_oneway",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "==",
+          "oneway",
+          1
+        ],
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary",
+          "minor",
+          "service"
+        ]
+      ],
+      "layout": {
+        "icon-image": "oneway",
+        "icon-padding": 2,
+        "icon-rotate": 90,
+        "icon-rotation-alignment": "map",
+        "icon-size": {
+          "stops": [
+            [
+              15,
+              0.5
+            ],
+            [
+              19,
+              1
+            ]
+          ]
+        },
+        "symbol-placement": "line",
+        "symbol-spacing": 75
+      },
+      "paint": {
+        "icon-opacity": 0.5
+      }
+    },
+    {
+      "id": "road_oneway_opposite",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "==",
+          "oneway",
+          -1
+        ],
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary",
+          "minor",
+          "service"
+        ]
+      ],
+      "layout": {
+        "icon-image": "oneway",
+        "icon-padding": 2,
+        "icon-rotate": -90,
+        "icon-rotation-alignment": "map",
+        "icon-size": {
+          "stops": [
+            [
+              15,
+              0.5
+            ],
+            [
+              19,
+              1
+            ]
+          ]
+        },
+        "symbol-placement": "line",
+        "symbol-spacing": 75
+      },
+      "paint": {
+        "icon-opacity": 0.5
+      }
+    },
+    {
       "id": "poi-level-3",
       "type": "symbol",
       "source": "openmaptiles",
@@ -5263,104 +5361,6 @@
         "text-color": "#111",
         "text-halo-width": 1,
         "text-halo-color": "#fff"
-      }
-    },
-    {
-      "id": "road_oneway",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        [
-          "==",
-          "oneway",
-          1
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
-      ],
-      "layout": {
-        "icon-image": "oneway",
-        "icon-padding": 2,
-        "icon-rotate": 90,
-        "icon-rotation-alignment": "map",
-        "icon-size": {
-          "stops": [
-            [
-              15,
-              0.5
-            ],
-            [
-              19,
-              1
-            ]
-          ]
-        },
-        "symbol-placement": "line",
-        "symbol-spacing": 75
-      },
-      "paint": {
-        "icon-opacity": 0.5
-      }
-    },
-    {
-      "id": "road_oneway_opposite",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        [
-          "==",
-          "oneway",
-          -1
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
-      ],
-      "layout": {
-        "icon-image": "oneway",
-        "icon-padding": 2,
-        "icon-rotate": -90,
-        "icon-rotation-alignment": "map",
-        "icon-size": {
-          "stops": [
-            [
-              15,
-              0.5
-            ],
-            [
-              19,
-              1
-            ]
-          ]
-        },
-        "symbol-placement": "line",
-        "symbol-spacing": 75
-      },
-      "paint": {
-        "icon-opacity": 0.5
       }
     },
     {
