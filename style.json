@@ -413,7 +413,7 @@
       "source": "hillshading",
       "layout": {"visibility": "visible"},
       "paint": {
-        "hillshade-exaggeration": {"stops": [[9, 0.5], [11, 0.5]]},
+        "hillshade-exaggeration": {"stops": [[12, 0.5], [15, 0.3]]},
         "hillshade-shadow-color": {
           "stops": [[6, "rgba(0, 0, 0, 0.5)"], [11, "rgba(0, 0, 0, 1)"]]
         }
