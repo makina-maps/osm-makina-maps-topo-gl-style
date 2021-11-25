@@ -32,7 +32,7 @@
     },
     "hillshading": {
       "type": "raster-dem",
-      "url": "https://makinamaps.makina-corpus.net/data/hillshading.json"
+      "url": "https://makinamaps.makina-corpus.net/data/hillshading_webp.json"
     }
   },
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
